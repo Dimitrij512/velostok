@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>velostok</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Online shop velostok project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
