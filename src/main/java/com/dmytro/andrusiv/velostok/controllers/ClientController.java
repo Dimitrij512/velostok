@@ -19,4 +19,10 @@ public class ClientController {
         return categoryService.getAllProjects();
     }
 
+    @GetMapping("/test")
+    String test() {
+
+        return "test, test, test";
+    }
+
 }
