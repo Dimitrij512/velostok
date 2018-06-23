@@ -10,6 +10,10 @@ public class Product {
     @Id
     String id;
     String name;
-    String description;
+    String title;
+    String category;
     int price;
+    String description;
+    String image;
+    String largeImage;
 }

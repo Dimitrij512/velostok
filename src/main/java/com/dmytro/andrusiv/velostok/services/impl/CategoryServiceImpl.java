@@ -26,7 +26,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Optional<Category> findById(String id) {
+    public Optional<Category> findOneById(String id) {
         return repository.findById(id);
     }
 

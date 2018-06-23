@@ -12,5 +12,7 @@ public class Category {
     @Id
     String id;
     String name;
+    String description;
+    String image;
     List<Product> products;
 }

@@ -11,7 +11,8 @@ public interface CategoryService {
 
     Category findOneByName(String name);
 
-    Optional<Category> findById(String id);
+    Optional<Category> findOneById(String id);
 
     Category createCategory(Category category);
+
 }
