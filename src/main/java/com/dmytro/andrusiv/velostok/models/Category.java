@@ -14,5 +14,5 @@ public class Category {
     String name;
     String description;
     String image;
-    List<Product> products;
+    String path;
 }
