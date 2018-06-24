@@ -7,12 +7,18 @@ import java.util.Optional;
 
 public interface CategoryService {
 
-    List<Category> getAllProjects();
+    List<Category> getAllCategories();
 
     Category findOneByName(String name);
 
     Optional<Category> findOneById(String id);
 
     Category createCategory(Category category);
+
+    Category updateCategory(Category category);
+
+    void deleteCategory(Category category);
+
+
 
 }

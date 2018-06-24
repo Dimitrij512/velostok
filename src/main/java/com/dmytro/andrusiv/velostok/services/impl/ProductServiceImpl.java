@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository repository;
 
     @Override
-    public List<Product> getAllProjects() {
+    public List<Product> getAllProducts() {
         return repository.findAll();
     }
 
@@ -40,5 +40,14 @@ public class ProductServiceImpl implements ProductService {
         return repository.save(product);
     }
 
+    @Override
+    public Product updateProduct(Product product) {
+        return repository.insert(product);
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+         repository.delete(product);
+    }
 
 }

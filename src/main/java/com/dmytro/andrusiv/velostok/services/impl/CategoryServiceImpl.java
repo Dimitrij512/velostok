@@ -16,7 +16,7 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryRepository repository;
 
     @Override
-    public List<Category> getAllProjects() {
+    public List<Category> getAllCategories() {
         return repository.findAll();
     }
 
@@ -33,5 +33,16 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category createCategory(Category category) {
         return repository.save(category);
+    }
+
+    @Override
+    public Category updateCategory(Category category) {
+        return repository.insert(category);
+    }
+
+    @Override
+    public void deleteCategory(Category category) {
+        repository.delete(category);
+
     }
 }

@@ -5,28 +5,45 @@ import com.dmytro.andrusiv.velostok.models.Product;
 import com.dmytro.andrusiv.velostok.services.api.CategoryService;
 import com.dmytro.andrusiv.velostok.services.api.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
-    CategoryService cotegoryService;
+    CategoryService categoryService;
 
     @Autowired
     ProductService productService;
 
-    @PostMapping("/createCategory")
-    Category createCategory(@RequestBody Category category){
-        return  cotegoryService.createCategory(category);
+    @PostMapping("/category")
+    Category createCategory(@RequestBody Category category) {
+        return categoryService.createCategory(category);
     }
 
-    @PostMapping("/createProduct")
-    Product createProduct(@RequestBody Product product){
+    @PostMapping("/product")
+    Product createProduct(@RequestBody Product product) {
         return productService.createProduct(product);
+    }
+
+    @PutMapping("/category")
+    Category updateCategory(Category category) {
+        return categoryService.updateCategory(category);
+    }
+
+    @PutMapping("/product")
+    Product updateProduct(Product product) {
+        return productService.updateProduct(product);
+    }
+
+    @DeleteMapping("/category")
+    void deleteCategory(Category category) {
+        categoryService.deleteCategory(category);
+    }
+
+    @DeleteMapping("/product")
+    void deleteProduct(Product product) {
+        productService.deleteProduct(product);
     }
 }

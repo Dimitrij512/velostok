@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface ProductService {
 
-    List<Product> getAllProjects();
+    List<Product> getAllProducts();
 
     List<Product> findAllByCategory(String name);
 
@@ -16,6 +16,10 @@ public interface ProductService {
     Optional<Product> findOneById(String id);
 
     Product createProduct(Product product);
+
+    Product updateProduct(Product product);
+
+    void deleteProduct(Product product);
 
 
 }

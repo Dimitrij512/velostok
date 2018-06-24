@@ -22,12 +22,12 @@ public class ClientController {
 
     @GetMapping("/allCategories")
     List<Category> getAllCategory() {
-        return categoryService.getAllProjects();
+        return categoryService.getAllCategories();
     }
 
     @GetMapping("/allProducts")
     List<Product> getAllProducts(){
-        return  productService.getAllProjects();
+        return  productService.getAllProducts();
     }
 
     @GetMapping("products/{name}")
