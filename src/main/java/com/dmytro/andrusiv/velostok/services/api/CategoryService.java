@@ -19,6 +19,4 @@ public interface CategoryService {
 
     void deleteCategory(Category category);
 
-
-
 }

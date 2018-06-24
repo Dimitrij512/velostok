@@ -16,4 +16,5 @@ public class Product {
     String description;
     String image;
     String largeImage;
+
 }

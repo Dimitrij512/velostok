@@ -46,4 +46,5 @@ public class AdminController {
     void deleteProduct(Product product) {
         productService.deleteProduct(product);
     }
+
 }
