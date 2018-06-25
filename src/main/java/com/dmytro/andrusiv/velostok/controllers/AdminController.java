@@ -38,12 +38,12 @@ public class AdminController {
     }
 
     @DeleteMapping("/category/{id}")
-    void deleteCategory(String id) {
+    void deleteCategory(@PathVariable String id) {
         categoryService.deleteById(id);
     }
 
     @DeleteMapping("/product/{id}")
-    void deleteProduct(String id) {
+    void deleteProduct(@PathVariable String id) {
         productService.deleteById(id);
     }
 
