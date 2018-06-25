@@ -37,14 +37,14 @@ public class AdminController {
         return productService.updateProduct(product);
     }
 
-    @DeleteMapping("/category")
-    void deleteCategory(Category category) {
-        categoryService.deleteCategory(category);
+    @DeleteMapping("/category/{id}")
+    void deleteCategory(String id) {
+        categoryService.deleteById(id);
     }
 
-    @DeleteMapping("/product")
-    void deleteProduct(Product product) {
-        productService.deleteProduct(product);
+    @DeleteMapping("/product/{id}")
+    void deleteProduct(String id) {
+        productService.deleteById(id);
     }
 
 }
