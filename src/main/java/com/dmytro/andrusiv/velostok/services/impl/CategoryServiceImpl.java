@@ -32,13 +32,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category createCategory(Category category) {
-        return repository.save(category);
+        return repository.insert(category);
     }
 
     @Override
-    public Category updateCategory(Category category) {
-        return repository.insert(category);
-    }
+    public Category updateCategory(Category category) { return repository.save(category); }
 
     @Override
     public void deleteById(String id) {

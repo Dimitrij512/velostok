@@ -37,12 +37,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        return repository.save(product);
+        return repository.insert(product);
     }
 
     @Override
     public Product updateProduct(Product product) {
-        return repository.insert(product);
+        return repository.save(product);
     }
 
     @Override

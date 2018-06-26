@@ -28,13 +28,12 @@ public class AdminController {
     }
 
     @PutMapping("/category")
-    Category updateCategory(Category category) {
+    Category updateCategory(@RequestBody Category category) {
         return categoryService.updateCategory(category);
     }
 
     @PutMapping("/product")
-    Product updateProduct(Product product) {
-        return productService.updateProduct(product);
+    Product updateProduct(@RequestBody  Product product) { return productService.updateProduct(product);
     }
 
     @DeleteMapping("/category/{id}")
