@@ -30,7 +30,7 @@ public class ClientController {
         return  productService.getAllProducts();
     }
 
-    @GetMapping("products/{name}")
+    @GetMapping("/products/{name}")
     List<Product> findAllProductsByCategory(@PathVariable String name){
         return productService.findAllByCategory(name);
     }
