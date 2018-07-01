@@ -30,6 +30,11 @@ public class ClientController {
         return  productService.getAllProducts();
     }
 
+    @GetMapping("/product/{productId}")
+    Product findOneById(@PathVariable String productId){
+        return productService.findOneById(productId).get();
+    }
+
     @GetMapping("/products/{name}")
     List<Product> findAllProductsByCategory(@PathVariable String name){
         return productService.findAllByCategory(name);
