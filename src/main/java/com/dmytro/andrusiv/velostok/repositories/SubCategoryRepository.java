@@ -10,7 +10,5 @@ import java.util.List;
 @Repository
 public interface SubCategoryRepository extends MongoRepository<SubCategory, String> {
 
-    List<Product> findAllProduct();
-
     SubCategory findOneByName(String name);
 }

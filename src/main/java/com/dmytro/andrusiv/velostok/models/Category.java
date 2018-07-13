@@ -14,6 +14,7 @@ public class Category {
     String name;
     String description;
     String image;
-    List<SuperCategory> superCategories;
+    String superCategoryId;
+    List<SubCategory> subCategories;
 
 }

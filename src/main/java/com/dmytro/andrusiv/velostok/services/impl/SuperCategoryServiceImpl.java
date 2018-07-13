@@ -5,10 +5,12 @@ import com.dmytro.andrusiv.velostok.models.SuperCategory;
 import com.dmytro.andrusiv.velostok.repositories.SuperCategoryRepository;
 import com.dmytro.andrusiv.velostok.services.api.SuperCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class SuperCategoryServiceImpl implements SuperCategoryService {
 
     @Autowired
@@ -17,11 +19,6 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
     @Override
     public List<SuperCategory> getAllSuperCategory() {
         return repository.findAll();
-    }
-
-    @Override
-    public List<Category> getAllCategory() {
-        return repository.findAllCategory();
     }
 
     @Override

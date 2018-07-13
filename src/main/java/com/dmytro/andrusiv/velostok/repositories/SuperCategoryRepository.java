@@ -10,7 +10,5 @@ import java.util.List;
 @Repository
 public interface SuperCategoryRepository extends MongoRepository<SuperCategory, String> {
 
-    List<Category> findAllCategory();
-
     SuperCategory findOneByName(String name);
 }
