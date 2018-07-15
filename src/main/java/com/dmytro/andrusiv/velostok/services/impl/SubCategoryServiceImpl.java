@@ -17,7 +17,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     SubCategoryRepository repository;
 
     @Override
-    public List<SubCategory> getAllSubCategory() {
+    public List<SubCategory> getAllSubCategories() {
         return repository.findAll();
     }
 

@@ -1,6 +1,5 @@
 package com.dmytro.andrusiv.velostok.services.api;
 
-import com.dmytro.andrusiv.velostok.models.Product;
 import com.dmytro.andrusiv.velostok.models.SubCategory;
 
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.Optional;
 
 public interface SubCategoryService {
 
-    List<SubCategory> getAllSubCategory();
+    List<SubCategory> getAllSubCategories();
 
     SubCategory findOneByName(String name);
 

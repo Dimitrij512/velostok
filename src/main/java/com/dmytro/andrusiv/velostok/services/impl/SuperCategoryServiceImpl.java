@@ -17,7 +17,7 @@ public class SuperCategoryServiceImpl implements SuperCategoryService {
     SuperCategoryRepository repository;
 
     @Override
-    public List<SuperCategory> getAllSuperCategory() {
+    public List<SuperCategory> getAllSuperCategories() {
         return repository.findAll();
     }
 

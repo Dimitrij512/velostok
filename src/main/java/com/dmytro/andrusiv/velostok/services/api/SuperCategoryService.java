@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface SuperCategoryService {
 
-    List<SuperCategory> getAllSuperCategory();
+    List<SuperCategory> getAllSuperCategories();
 
     SuperCategory findOneByName(String name);
 
