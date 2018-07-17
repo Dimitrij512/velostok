@@ -32,7 +32,7 @@ public class ClientController {
     ProductService productService;
 
 
-    @GetMapping("/allSuperCategory")
+    @GetMapping("/allSuperCategories")
     List<SuperCategory> getAllSuperCategory() {
         return superCategoryService.getAllSuperCategories();
     }
