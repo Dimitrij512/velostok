@@ -14,6 +14,7 @@ public class SubCategory {
     String name;
     String description;
     String image;
-    String category;
+    String categoryName;
+    String categoryId;
     List<Product> products;
 }
