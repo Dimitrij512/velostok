@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,6 +16,6 @@ public class SuperCategory {
     String name;
     String description;
     String image;
-    List<Category> categories;
+    List<Category> categories = new ArrayList<>();
 
 }
