@@ -21,6 +21,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<Category> findAllBySuberCategoryId(String id) {
+        return repository.findAllBySuperCategoryId(id);
+    }
+
+    @Override
     public Category findOneByName(String name) {
         return repository.findOneByName(name);
     }

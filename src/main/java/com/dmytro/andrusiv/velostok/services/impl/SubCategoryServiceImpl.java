@@ -22,6 +22,10 @@ public class SubCategoryServiceImpl implements SubCategoryService {
     }
 
     @Override
+    public List<SubCategory> findAllByCategryId(String id) {
+        return repository.findAllByCategoryId(id); }
+
+    @Override
     public SubCategory findOneByName(String name) {
         return repository.findOneByName(name);
     }

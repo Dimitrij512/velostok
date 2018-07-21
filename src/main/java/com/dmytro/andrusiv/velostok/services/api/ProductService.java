@@ -11,6 +11,8 @@ public interface ProductService {
 
     List<Product> findAllByCategory(String name);
 
+    List<Product> findAllBySubCategoryId(String id);
+
     Product findOneByName(String name);
 
     Optional<Product> findOneById(String id);
@@ -20,5 +22,7 @@ public interface ProductService {
     Product updateProduct(Product product);
 
     void deleteById(String id);
+
+
 
 }

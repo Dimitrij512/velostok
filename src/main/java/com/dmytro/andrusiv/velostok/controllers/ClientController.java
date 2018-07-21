@@ -77,4 +77,19 @@ public class ClientController {
         return productService.findAllByCategory(name);
     }
 
+    @GetMapping("/products/subCategory/{id}")
+    List<Product> findAllProductBySubCategoryId(@PathVariable String id){
+        return productService.findAllBySubCategoryId(id);
+    }
+
+    @GetMapping("/subCategory/category/{id}")
+    List<SubCategory> findAllSubCategoryByCategoryId(@PathVariable String id){
+        return subCategoryService.findAllByCategryId(id);
+    }
+
+    @GetMapping("/category/superCategory/{id}")
+    List<Category> findAllCategoryBySuperCategoryId(@PathVariable String id){
+       return categoryService.findAllBySuberCategoryId(id);
+    }
+
 }

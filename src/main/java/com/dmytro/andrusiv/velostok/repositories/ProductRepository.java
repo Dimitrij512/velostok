@@ -8,9 +8,10 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends MongoRepository<Product, String> {
-
     Product findOneByName(String name);
 
     List<Product> findAllByCategory(String name);
+
+    List<Product> findAllBySubCategoryId(String id);
 
 }

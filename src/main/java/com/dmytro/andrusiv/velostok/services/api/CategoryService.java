@@ -9,6 +9,8 @@ public interface CategoryService {
 
     List<Category> getAllCategories();
 
+    List<Category> findAllBySuberCategoryId(String id);
+
     Category findOneByName(String name);
 
     Optional<Category> findOneById(String id);
