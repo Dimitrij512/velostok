@@ -47,6 +47,11 @@ public class ClientController {
         return subCategoryService.getAllSubCategories();
     }
 
+    @GetMapping("/superCategory/{id}")
+    SuperCategory findSuperCategoryById(@PathVariable String id){
+        return superCategoryService.findOneByName(id);
+    }
+
     @GetMapping("/category/{id}")
     Category findCategoryById(@PathVariable String id) {
         return categoryService.findOneById(id).get();
