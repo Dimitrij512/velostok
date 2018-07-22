@@ -49,7 +49,7 @@ public class ClientController {
 
     @GetMapping("/superCategory/{id}")
     SuperCategory findSuperCategoryById(@PathVariable String id){
-        return superCategoryService.findOneByName(id);
+        return superCategoryService.findOneById(id).get();
     }
 
     @GetMapping("/category/{id}")
