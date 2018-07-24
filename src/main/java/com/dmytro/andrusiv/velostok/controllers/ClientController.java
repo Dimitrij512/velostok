@@ -71,10 +71,10 @@ public class ClientController {
         return productService.findOneById(productId).get();
     }
 
-    @GetMapping("/products/category/{categoryName}")
+/*    @GetMapping("/products/category/{categoryName}")
     List<Product> findAllByCategory(@PathVariable String categoryName) {
         return productService.findAllByCategory(categoryName);
-    }
+    }*/
 
     @GetMapping("/products/{name}")
     List<Product> findAllProductsByCategory(@PathVariable String name) {
