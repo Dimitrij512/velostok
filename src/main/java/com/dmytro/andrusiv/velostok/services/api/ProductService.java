@@ -13,6 +13,8 @@ public interface ProductService {
 
     List<Product> findAllBySubCategoryId(String id);
 
+    List<Product> findAllByCategoryId(String id);
+
     Product findOneByName(String name);
 
     Optional<Product> findOneById(String id);

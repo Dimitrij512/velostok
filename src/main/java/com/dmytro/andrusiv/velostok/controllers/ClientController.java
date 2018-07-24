@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -82,6 +81,11 @@ public class ClientController {
         return productService.findAllByCategory(name);
     }
 
+    @GetMapping("/products/category/{id}")
+    List<Product> findAllProductByCategoryId(@PathVariable String id){
+        return productService.findAllByCategoryId(id);
+    }
+
     @GetMapping("/products/subCategory/{id}")
     List<Product> findAllProductBySubCategoryId(@PathVariable String id){
         return productService.findAllBySubCategoryId(id);
@@ -94,7 +98,7 @@ public class ClientController {
 
     @GetMapping("/category/superCategory/{id}")
     List<Category> findAllCategoryBySuperCategoryId(@PathVariable String id){
-       return categoryService.findAllBySuberCategoryId(id);
+       return categoryService.findAllBySuperCategoryId(id);
     }
 
 }

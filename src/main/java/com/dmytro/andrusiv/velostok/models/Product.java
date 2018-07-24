@@ -12,6 +12,7 @@ public class Product {
     String name;
     String title;
     String category;
+    String categoryId;
     String subCategoryName;
     String subCategoryId;
     int price;

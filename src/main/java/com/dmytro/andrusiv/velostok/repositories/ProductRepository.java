@@ -14,4 +14,6 @@ public interface ProductRepository extends MongoRepository<Product, String> {
 
     List<Product> findAllBySubCategoryId(String id);
 
+    List<Product> findAllByCategoryId(String id);
+
 }

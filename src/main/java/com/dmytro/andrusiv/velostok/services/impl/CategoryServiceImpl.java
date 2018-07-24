@@ -21,7 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> findAllBySuberCategoryId(String id) {
+    public List<Category> findAllBySuperCategoryId(String id) {
         return repository.findAllBySuperCategoryId(id);
     }
 
