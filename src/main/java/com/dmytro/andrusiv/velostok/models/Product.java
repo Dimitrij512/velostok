@@ -17,6 +17,7 @@ public class Product {
     String subCategoryName;
     String subCategoryId;
     int price;
+    boolean isAvailable;
     String description;
     String image;
     String largeImage;
