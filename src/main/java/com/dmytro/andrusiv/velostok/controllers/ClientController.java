@@ -71,24 +71,9 @@ public class ClientController {
         return productService.findOneById(productId).get();
     }
 
-/*    @GetMapping("/products/category/{categoryName}")
-    List<Product> findAllByCategory(@PathVariable String categoryName) {
-        return productService.findAllByCategory(categoryName);
-    }*/
-
-    @GetMapping("/products/{name}")
-    List<Product> findAllProductsByCategory(@PathVariable String name) {
-        return productService.findAllByCategory(name);
-    }
-
     @GetMapping("/products/category/{id}")
     List<Product> findAllProductByCategoryId(@PathVariable String id){
         return productService.findAllByCategoryId(id);
-    }
-
-    @GetMapping("/products/subCategory/{id}")
-    List<Product> findAllProductBySubCategoryId(@PathVariable String id){
-        return productService.findAllBySubCategoryId(id);
     }
 
     @GetMapping("/subCategory/category/{id}")

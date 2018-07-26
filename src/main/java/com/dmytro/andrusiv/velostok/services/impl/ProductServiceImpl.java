@@ -21,16 +21,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAllByCategory(String name) {
-        return repository.findAllByCategory(name);
-    }
-
-    @Override
-    public List<Product> findAllBySubCategoryId(String id) {
-        return repository.findAllBySubCategoryId(id);
-    }
-
-    @Override
     public List<Product> findAllByCategoryId(String id) {
         return repository.findAllByCategoryId(id);
     }
