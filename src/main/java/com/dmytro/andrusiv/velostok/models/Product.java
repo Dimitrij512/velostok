@@ -11,11 +11,8 @@ public class Product {
     String id;
     String name;
     String title;
-    String category;
     String categoryId;
     String categoryName;
-    String subCategoryName;
-    String subCategoryId;
     int price;
     boolean isAvailable;
     String description;
