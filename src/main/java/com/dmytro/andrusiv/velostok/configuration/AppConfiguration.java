@@ -9,7 +9,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
 //    for developing only
-        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedHeaders("");
+        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
 //    for production
 //    registry.addMapping("/**").allowedMethods("GET", "POST","PUT", "DELETE", "OPTIONS")
 //        .allowedOrigins(environment.getRequiredProperty("allow.origin.local"),environment.getRequiredProperty("allow.origin.global"));
