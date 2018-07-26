@@ -14,7 +14,7 @@ public class Product {
     String categoryId;
     String categoryName;
     int price;
-    boolean isAvailable;
+    boolean available;
     String description;
     String image;
     String largeImage;
