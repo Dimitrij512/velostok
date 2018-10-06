@@ -1,6 +1,5 @@
 package com.dmytro.andrusiv.velostok.services.impl;
 
-import com.dmytro.andrusiv.velostok.models.Category;
 import com.dmytro.andrusiv.velostok.models.SuperCategory;
 import com.dmytro.andrusiv.velostok.repositories.SuperCategoryRepository;
 import com.dmytro.andrusiv.velostok.services.api.SuperCategoryService;
