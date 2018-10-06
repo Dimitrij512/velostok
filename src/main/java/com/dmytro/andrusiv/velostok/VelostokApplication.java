@@ -23,7 +23,7 @@ public class VelostokApplication extends WebSecurityConfigurerAdapter {
 				.csrf().disable()
 				.antMatcher("/**")
 				.authorizeRequests()
-				.antMatchers("/", "/login**", "/webjars/**")
+				.antMatchers("/", "/login**","/categories","/products","/allSuperCategories","/webjars/**")
 				.permitAll()
 				.anyRequest()
 				.authenticated()
@@ -32,6 +32,7 @@ public class VelostokApplication extends WebSecurityConfigurerAdapter {
 
 	@RequestMapping("/user")
 	public Principal user(Principal principal) {
+		System.out.println(principal);
 		return principal;
 	}
 
