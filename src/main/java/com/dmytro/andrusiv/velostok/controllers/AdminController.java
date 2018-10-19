@@ -1,13 +1,7 @@
 package com.dmytro.andrusiv.velostok.controllers;
 
-import com.dmytro.andrusiv.velostok.models.Category;
-import com.dmytro.andrusiv.velostok.models.Product;
-import com.dmytro.andrusiv.velostok.models.SubCategory;
-import com.dmytro.andrusiv.velostok.models.SuperCategory;
-import com.dmytro.andrusiv.velostok.services.api.CategoryService;
-import com.dmytro.andrusiv.velostok.services.api.ProductService;
-import com.dmytro.andrusiv.velostok.services.api.SubCategoryService;
-import com.dmytro.andrusiv.velostok.services.api.SuperCategoryService;
+import com.dmytro.andrusiv.velostok.models.*;
+import com.dmytro.andrusiv.velostok.services.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +21,18 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    UserService userService;
+
+    @GetMapping("/user")
+    User findUser(@PathVariable String userEmail){
+        return userService.findOneByEmail(userEmail);
+    }
+
+    @PostMapping("/user")
+    User createUser(@RequestBody User user){
+        return userService.createUser(user);
+    }
 
     @PostMapping("/superCategory")
     SuperCategory createSuperCategory(@RequestBody SuperCategory superCategory) {
@@ -48,6 +54,10 @@ public class AdminController {
         return productService.createProduct(product);
     }
 
+    @PutMapping("/user")
+    User updateUser(@RequestBody User user){
+        return userService.updateUser(user);
+    }
 
     @PutMapping("/superCategory")
     SuperCategory updateSuperCategory(@RequestBody SuperCategory superCategory) {
@@ -68,6 +78,9 @@ public class AdminController {
     Product updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product);
     }
+
+    @DeleteMapping("/user")
+    void deleteUser(@PathVariable String userId){ userService.deleteById(userId); }
 
     @DeleteMapping("/superCategory/{id}")
     void deleteSuperCategory(@PathVariable String id){
