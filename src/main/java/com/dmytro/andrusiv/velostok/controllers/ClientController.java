@@ -6,9 +6,11 @@ import com.dmytro.andrusiv.velostok.services.api.ProductService;
 import com.dmytro.andrusiv.velostok.services.api.SubCategoryService;
 import com.dmytro.andrusiv.velostok.services.api.SuperCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -90,6 +92,10 @@ public class ClientController {
     public Principal user(Principal principal) {
         User user = new User();
         System.out.println(principal);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(authentication);
+        String token = ((OAuth2AuthenticationDetails) authentication.getDetails()).getTokenValue();
+        System.out.println(token);
         return principal;
     }
 
