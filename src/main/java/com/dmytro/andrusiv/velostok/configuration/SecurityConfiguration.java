@@ -4,7 +4,6 @@ import com.dmytro.andrusiv.velostok.configuration.securityFilters.JWTAuthenticat
 import com.dmytro.andrusiv.velostok.configuration.securityFilters.JWTAuthorizationFilter;
 import com.dmytro.andrusiv.velostok.services.impl.userDetail.UserDtlsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,20 +18,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import static com.dmytro.andrusiv.velostok.configuration.securityFilters.SecurityConstants.SIGN_UP_URL;
 
 @Configuration
-@EnableOAuth2Sso
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String ANTPATTERNOPTIONS = "/**";
-    private static final String[] ANTPATTERNCLIENTPOST = {"/"};
-    private static final String[] ANTPATTERNGET = { "/", "/user", "/login**", "/products", "/allSuperCategories", "/webjars/**"};
-
+    private static final String[] ANTPATTERNCLIENTPOST = {"/admin/user"};
+    private static final String[] ANTPATTERNGET = { "/allSuperCategories**", "/allCategories**",
+            "/allSubCategories**","/products/category/**","/category/**","/admin/user**",
+            "/createFacebookAuthorization", "/facebook", "/getName"};
 
     @Autowired
     private UserDtlsService dtlsService;
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
-
         return new BCryptPasswordEncoder();
     }
 
@@ -44,34 +43,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-/*        http.cors().and().csrf().disable()
-                .authorizeRequests()
-                //.antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers("/", "/user", "/login**", "/products", "/allSuperCategories", "/webjars/**").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+        http.cors().and().csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+                .anyRequest().authenticated().and().addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager())).sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);*/
-
-        http
-                .csrf().disable()
-                .antMatcher("/**")
-                .authorizeRequests()
-                .antMatchers("/", "/user", "/login**", "/products", "/allSuperCategories", "/webjars/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and().logout().logoutSuccessUrl("/").permitAll();
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-/*    @Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
+
         web.ignoring().antMatchers(HttpMethod.OPTIONS, ANTPATTERNOPTIONS);
         web.ignoring().antMatchers(HttpMethod.POST, ANTPATTERNCLIENTPOST);
         web.ignoring().antMatchers(HttpMethod.GET, ANTPATTERNGET);
-    }*/
+    }
 
 }

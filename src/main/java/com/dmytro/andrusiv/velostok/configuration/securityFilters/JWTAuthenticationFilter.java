@@ -66,4 +66,5 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, SECRET.getBytes()).compact();
     }
+
 }

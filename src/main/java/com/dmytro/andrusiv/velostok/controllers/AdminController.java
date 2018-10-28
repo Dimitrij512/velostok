@@ -5,6 +5,8 @@ import com.dmytro.andrusiv.velostok.services.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -25,7 +27,12 @@ public class AdminController {
     UserService userService;
 
     @GetMapping("/user")
-    User findUser(@PathVariable String userEmail){
+    List<User> getListUsers(){
+        return userService.listAllUsers();
+    }
+
+    @GetMapping("/user/{email}")
+    User findUserByEmail(@PathVariable String userEmail) {
         return userService.findOneByEmail(userEmail);
     }
 
@@ -79,8 +86,8 @@ public class AdminController {
         return productService.updateProduct(product);
     }
 
-    @DeleteMapping("/user")
-    void deleteUser(@PathVariable String userId){ userService.deleteById(userId); }
+    @DeleteMapping("/user/{id}")
+    void deleteUser(@PathVariable String id){ userService.deleteById(id); }
 
     @DeleteMapping("/superCategory/{id}")
     void deleteSuperCategory(@PathVariable String id){
