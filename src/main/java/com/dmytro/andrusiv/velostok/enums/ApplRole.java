@@ -2,11 +2,12 @@ package com.dmytro.andrusiv.velostok.enums;
 
 public enum ApplRole {
 
-    ADMIN("адміністратор"), USER("клієнт");
+    ADMIN("адміністратор"), USER("клієнт"),
+    SOCIAL("coціальний");
 
     private String role;
 
-    private ApplRole(String role){
+    ApplRole(String role){
         this.role = role;
     }
 

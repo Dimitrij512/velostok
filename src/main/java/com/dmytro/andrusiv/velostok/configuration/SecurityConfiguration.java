@@ -24,8 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String ANTPATTERNOPTIONS = "/**";
     private static final String[] ANTPATTERNCLIENTPOST = {"/admin/user"};
     private static final String[] ANTPATTERNGET = { "/allSuperCategories**", "/allCategories**",
-            "/allSubCategories**","/products/category/**","/category/**","/admin/user**",
-            "/createFacebookAuthorization", "/facebook", "/getName"};
+            "/allSubCategories**", "/products/category/**", "/product/**", "/category/**","/admin/user**",
+            "/createFacebookAuthorization", "/facebook", "/getSocialUser"};
 
     @Autowired
     private UserDtlsService dtlsService;

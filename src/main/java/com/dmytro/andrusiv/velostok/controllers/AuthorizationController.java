@@ -38,9 +38,9 @@ public class AuthorizationController {
         facebookService.createFacebookAccessToken(code);
     }
 
-    @GetMapping("/getName")
-    public User getNameResponse(){
-        return facebookService.getName();
+    @GetMapping("/getSocialUser")
+    public com.dmytro.andrusiv.velostok.models.User getNameResponse(){
+        return facebookService.getSocialUser();
     }
 
 }

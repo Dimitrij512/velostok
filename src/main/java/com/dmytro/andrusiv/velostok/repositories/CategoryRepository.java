@@ -9,7 +9,9 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends MongoRepository<Category, String> {
+
     Category findOneByName(String name);
 
     List<Category> findAllBySuperCategoryId(String id);
+
 }
