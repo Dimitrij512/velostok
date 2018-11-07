@@ -1,6 +1,7 @@
 package com.dmytro.andrusiv.velostok.services.impl;
 
 
+import com.dmytro.andrusiv.velostok.enums.ApplRole;
 import com.dmytro.andrusiv.velostok.models.User;
 import com.dmytro.andrusiv.velostok.repositories.UserRepository;
 import com.dmytro.andrusiv.velostok.services.api.UserService;
@@ -11,9 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
-import java.util.AbstractMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
 
     @Autowired
     UserRepository userRepository;
@@ -49,7 +50,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
-        return userRepository.insert(user);
+        User tempUser = userRepository.findOneByEmail(user.getEmail());
+        if (tempUser == null) {
+            tempUser = userRepository.insert(prepareUser(user));
+        }
+        return tempUser;
     }
 
     @Override
@@ -61,6 +66,19 @@ public class UserServiceImpl implements UserService {
     public Map.Entry<String, String> getAuthority(Authentication authentication) {
         return new AbstractMap.SimpleEntry<String, String>(ROLE,
                 authentication.getAuthorities().stream().findFirst().get().getAuthority());
+    }
+
+    private User prepareUser(User user) {
+        User prepareUser = new User();
+        prepareUser.setRole(user.getRole());
+        prepareUser.setLastName(user.getLastName());
+        prepareUser.setFirstName(user.getFirstName());
+        prepareUser.setEmail(user.getEmail());
+        prepareUser.setPassword(bCryptPasswordEncoder.encode(user.getPhotoUrl()));
+        prepareUser.setPhotoUrl(user.getPhotoUrl());
+        prepareUser.setName(user.getName());
+
+        return prepareUser;
     }
 
 }

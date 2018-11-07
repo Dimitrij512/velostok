@@ -54,7 +54,7 @@ public class FacebookService {
     private User getFacebookUser() {
         Connection<Facebook> connection = connectionFactory.createConnection(accessGrant);
         Facebook facebook = connection.getApi();
-        String [] fields = { "id", "email",  "first_name", "last_name","address","birthday","about"};
+            String [] fields = { "id", "email",  "first_name", "last_name","address","birthday","about"};
 
         return facebook.fetchObject("me", User.class, fields);
     }
@@ -64,12 +64,12 @@ public class FacebookService {
         com.dmytro.andrusiv.velostok.models.User currentUser = userService.findOneByEmail(facebookUser.getEmail());
         if(currentUser == null){
             currentUser = new com.dmytro.andrusiv.velostok.models.User();
-            currentUser.setRole(ApplRole.SOCIAL);
+            currentUser.setRole(ApplRole.FACEBOOK);
             currentUser.setLastName(facebookUser.getLastName());
             currentUser.setFirstName(facebookUser.getFirstName());
             currentUser.setEmail(facebookUser.getEmail());
             currentUser.setPassword(getRandomNumbers());
-            currentUser.setImage("*********************");
+            currentUser.setPhotoUrl("*********************");
             currentUser.setId(facebookUser.getId());
 
             userService.createUser(currentUser);

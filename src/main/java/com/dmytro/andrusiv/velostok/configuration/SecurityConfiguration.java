@@ -22,10 +22,11 @@ import static com.dmytro.andrusiv.velostok.configuration.securityFilters.Securit
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String ANTPATTERNOPTIONS = "/**";
-    private static final String[] ANTPATTERNCLIENTPOST = {"/admin/user"};
+    private static final String ANTPATTERNDELETE = "/admin/user/**";
+    private static final String[] ANTPATTERNCLIENTPOST = {"/admin/user","/admin/user/**","/testUser","/testUser/**"};
     private static final String[] ANTPATTERNGET = { "/allSuperCategories**", "/allCategories**",
-            "/allSubCategories**", "/products/category/**", "/product/**", "/category/**","/admin/user**",
-            "/createFacebookAuthorization", "/facebook", "/getSocialUser"};
+            "/allSubCategories**", "/products/category/**", "/product/**", "/category/**","/admin/user**", "/admin/user/**",
+            "/facebook", "/getSocialUser", "/createFacebookAuthorization"};
 
     @Autowired
     private UserDtlsService dtlsService;
@@ -50,11 +51,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
 
         web.ignoring().antMatchers(HttpMethod.OPTIONS, ANTPATTERNOPTIONS);
         web.ignoring().antMatchers(HttpMethod.POST, ANTPATTERNCLIENTPOST);
         web.ignoring().antMatchers(HttpMethod.GET, ANTPATTERNGET);
+        web.ignoring().antMatchers(HttpMethod.DELETE, ANTPATTERNDELETE);
     }
 
 }

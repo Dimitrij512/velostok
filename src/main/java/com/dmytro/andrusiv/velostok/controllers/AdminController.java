@@ -31,9 +31,9 @@ public class AdminController {
         return userService.listAllUsers();
     }
 
-    @GetMapping("/user/{email}")
-    User findUserByEmail(@PathVariable String userEmail) {
-        return userService.findOneByEmail(userEmail);
+    @GetMapping("/user/{email:.+}")
+    User findUserByEmail(@PathVariable String email) {
+        return userService.findOneByEmail(email);
     }
 
     @PostMapping("/user")

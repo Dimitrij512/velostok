@@ -3,7 +3,7 @@ package com.dmytro.andrusiv.velostok.enums;
 public enum ApplRole {
 
     ADMIN("адміністратор"), USER("клієнт"),
-    SOCIAL("coціальний");
+    FACEBOOK("фейсбук");
 
     private String role;
 
