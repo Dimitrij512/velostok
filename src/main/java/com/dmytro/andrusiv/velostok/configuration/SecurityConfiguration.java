@@ -27,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] ANTPATTERNGET = {"/allSuperCategories","/allCategories",
             "/allSubCategories","/superCategory/**","/category/**","/subCategory/**",
             "/allProducts","/product/**","/products/category/**","/subCategory/**",
-            "/category/superCategory/**"};
+            "/category/superCategory/**","/admin/user/**"};
 
     @Autowired
     private UserDtlsService dtlsService;
