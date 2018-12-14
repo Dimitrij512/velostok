@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map.Entry<String, String> getAuthority(Authentication authentication) {
-        return new AbstractMap.SimpleEntry<String, String>(ROLE,
+        return new AbstractMap.SimpleEntry<>(ROLE,
                 authentication.getAuthorities().stream().findFirst().get().getAuthority());
     }
 
