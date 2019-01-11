@@ -13,7 +13,7 @@ public class Product {
     String title;
     String categoryId;
     String categoryName;
-    int price;
+    double price;
     boolean available;
     String description;
     String image;
